@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mdelab1" nsURI="http://www.example.org/mdelab1" nsPrefix="mdelab1">
+  <eClassifiers xsi:type="ecore:EClass" name="ProductionLine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/productionline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemtype" lowerBound="1"
+        upperBound="-1" eType="#//ItemType" eOpposite="#//ItemType/productionline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Area">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productionline" eType="#//ProductionLine"
+        eOpposite="#//ProductionLine/area"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSome" upperBound="-1"
+        eType="#//Connector" eOpposite="#//Connector/isIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slot" lowerBound="1" upperBound="-1"
+        eType="#//Slot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
+        eType="#//Connector" eOpposite="#//Connector/component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isAt" lowerBound="1" eType="#//Connector"
+        eOpposite="#//Connector/input"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
+        eType="#//Connector" eOpposite="#//Connector/output"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasType" lowerBound="1"
+        eType="#//ItemType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOutput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Slot"
+        eOpposite="#//Slot/isAt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
+        eType="#//Slot" eOpposite="#//Slot/connector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isIn" upperBound="-1" eType="#//Area"
+        eOpposite="#//Area/hasSome"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="2"
+        upperBound="2" eType="#//Component" eOpposite="#//Component/connector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productionline" upperBound="-1"
+        eType="#//ProductionLine" eOpposite="#//ProductionLine/itemtype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WasteStore" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductStore" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Machine" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Turntable" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conveyor" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemGenerator" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
+        eType="#//ItemType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer" eSuperTypes="#//Component"/>
+</ecore:EPackage>
