@@ -17,11 +17,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Area/productionline"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Area/hasSome"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Area/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Area/name"/>
     </genClasses>
     <genClasses ecoreClass="mdelab1.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Component/slot"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Component/service"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Component/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Component/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Component/cost"/>
     </genClasses>
     <genClasses ecoreClass="mdelab1.ecore#//Slot">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Slot/isAt"/>
@@ -29,6 +32,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Slot/hasType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Slot/isInput"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Slot/isOutput"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Slot/name"/>
     </genClasses>
     <genClasses ecoreClass="mdelab1.ecore#//Connector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Connector/input"/>
@@ -36,9 +40,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Connector/isIn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//Connector/component"/>
     </genClasses>
-    <genClasses ecoreClass="mdelab1.ecore#//Service"/>
+    <genClasses ecoreClass="mdelab1.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Service/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Service/realiability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//Service/cost"/>
+    </genClasses>
     <genClasses ecoreClass="mdelab1.ecore#//ItemType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdelab1.ecore#//ItemType/productionline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//ItemType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdelab1.ecore#//ItemType/description"/>
     </genClasses>
     <genClasses ecoreClass="mdelab1.ecore#//WasteStore"/>
     <genClasses ecoreClass="mdelab1.ecore#//ProductStore"/>

@@ -13,14 +13,17 @@
         eType="#//Connector" eOpposite="#//Connector/isIn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
         eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="slot" lowerBound="1" upperBound="-1"
         eType="#//Slot" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
-        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//Service"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
         eType="#//Connector" eOpposite="#//Connector/component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Slot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isAt" lowerBound="1" eType="#//Connector"
@@ -31,6 +34,7 @@
         eType="#//ItemType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOutput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Slot"
@@ -42,10 +46,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="2"
         upperBound="2" eType="#//Component" eOpposite="#//Component/connector"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Service"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="realiability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="productionline" upperBound="-1"
         eType="#//ProductionLine" eOpposite="#//ProductionLine/itemtype"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WasteStore" eSuperTypes="#//Component"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProductStore" eSuperTypes="#//Component"/>
